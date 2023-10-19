@@ -6,6 +6,7 @@ const geocode = require("./utils/geocode")
 const forecast = require("./utils/prediksiCuaca")
 
 const app = express();
+const port = process.env.PORT || 3000
 
 // Mengatur view engine
 app.set("view engine", "hbs");
@@ -88,7 +89,7 @@ app.get("*", (req, res) => {
   });
 });
 
-// Menjalankan server pada port 4000
-app.listen(4000, () => {
-  console.log("Server berjalan pada port 4000.");
+// Menjalankan server pada port 3000
+app.listen(port, () => {
+  console.log("Server berjalan pada port " + port);
 });
