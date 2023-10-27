@@ -26,7 +26,7 @@ hbs.registerPartials(direktoriPartials);
 app.get("/", (req, res) => {
   res.render("index", {
     judul: "Aplikasi Cek Cuaca",
-    nama: "Mukhtarijal",
+    nama: "Rijal",
   });
 });
 
