@@ -8,8 +8,26 @@
   <body>
     <div class="main-content">
       {{>header}}
-      <p>{{teksBantuan}}</p>
+
+      <h1>Bantuan</h1>
+
+      <h2>a. Halaman ini digunakan untuk apa?</h2>
+      <p>Halaman ini digunakan untuk memberikan informasi tentang tujuan dan penggunaan aplikasi. Aplikasi ini dirancang untuk memberikan informasi tentang cuaca saat ini berdasarkan lokasi yang Anda pilih. Anda dapat mencari cuaca untuk lokasi mana pun di seluruh dunia dengan mudah.</p>
+
+      <h2>b. Apa itu API?</h2>
+      <p>API (Application Programming Interface) adalah kumpulan aturan dan protokol yang memungkinkan perangkat lunak untuk berkomunikasi satu sama lain. Dalam konteks aplikasi ini, API digunakan untuk mengambil data cuaca dan berita dari sumber eksternal. Ini memungkinkan aplikasi untuk mengakses informasi terbaru tentang cuaca dan berita tanpa harus menyimpan data tersebut sendiri.</p>
+
+      <h2>c. API apa yang digunakan dalam aplikasi ini?</h2>
+      <p>Aplikasi ini menggunakan beberapa API untuk mengumpulkan data yang berbeda:
+        Mapbox API: Digunakan untuk geokode lokasi, yang berarti mengonversi alamat yang dimasukkan menjadi koordinat geografis (latitude dan longitude) yang dapat digunakan untuk mencari cuaca di lokasi tersebut.
+        Weatherstack API: Digunakan untuk mendapatkan informasi cuaca terbaru berdasarkan koordinat geografis yang diperoleh dari Mapbox API. Informasi cuaca meliputi suhu saat ini, deskripsi cuaca, indeks UV, dan visibilitas.
+        MediaStack API: Digunakan untuk mengambil berita terkini. Ini memungkinkan aplikasi untuk menampilkan berita terbaru kepada pengguna.</p>
+
+      <h2>d. Pola arsitektur API yang digunakan dalam aplikasi ini?</h2>
+      <p>Aplikasi ini menggunakan pola arsitektur RESTful (Representational State Transfer). RESTful adalah pendekatan arsitektur yang digunakan dalam pengembangan web untuk mendapatkan data dari server dengan menggunakan metode HTTP. Ini adalah salah satu pendekatan yang paling umum digunakan dalam pengembangan API web dan memungkinkan komunikasi yang efisien antara klien (aplikasi) dan server (sumber data).</p>
+      <img src="/img/gRPC.jpg" alt="Diagram Arsitektur API gRPC">
+
+      {{>footer}}
     </div>
-    {{>footer}}
   </body>
 </html>
