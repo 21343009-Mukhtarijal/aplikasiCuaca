@@ -2,11 +2,12 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const geocode = require("./utils/geocode")
-const forecast = require("./utils/prediksiCuaca")
+const geocode = require("./utils/geocode");
+const forecast = require("./utils/prediksiCuaca");
+const axios = require('axios');
 
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 // Mengatur view engine
 app.set("view engine", "hbs");
@@ -26,7 +27,7 @@ hbs.registerPartials(direktoriPartials);
 app.get("/", (req, res) => {
   res.render("index", {
     judul: "Aplikasi Cek Cuaca",
-    nama: "Rijal",
+    nama: "Mukhtarijal",
   });
 });
 
@@ -61,6 +62,34 @@ app.get('/infocuaca', (req, res) => {
       });
     });
   });
+});
+
+// ini halaman berita
+app.get('/berita', async (req, res) => {
+  try {
+      const urlApiMediaStack = 'http://api.mediastack.com/v1/news';
+      const apiKey = '43d696d259689048b04294ea55b663e3';
+
+      const params = {
+          access_key: apiKey,
+          countries: 'id', 
+      };
+
+      const response = await axios.get(urlApiMediaStack, { params });
+      const dataBerita = response.data;
+
+      res.render('berita', {
+          nama: 'Mukhtarijal',
+          judul: 'Laman Berita',
+          berita: dataBerita.data,
+      });
+  } catch (error) {
+      console.error(error);
+      res.render('error', {
+          judul: 'Terjadi Kesalahan',
+          pesanKesalahan: 'Terjadi kesalahan saat mengambil berita.',
+      });
+  }
 });
 
 // Halaman tentang
